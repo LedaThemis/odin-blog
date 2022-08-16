@@ -29,6 +29,7 @@ const CommentForm = ({
             switch (res.state) {
                 case 'success':
                     pushComment(res.comment);
+                    setContent('');
                     break;
                 case 'failed':
                     setErrors(res.errors);
@@ -50,10 +51,11 @@ const CommentForm = ({
                     <StyledTextarea
                         id="content"
                         name="content"
+                        value={content}
                         onChange={handleChange}
                     />
                 </StyledLabel>
-                <StyledSubmitButton type="submit">
+                <StyledSubmitButton type="submit" disabled={!content}>
                     Post Comment
                 </StyledSubmitButton>
             </StyledCommentForm>
