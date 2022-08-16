@@ -14,6 +14,9 @@ const PostDisplay = ({ post }: { post: PostType }) => {
     const [comments, setComments] = useState<CommentType[]>();
     const [errors, setErrors] = useState<ErrorType[]>();
 
+    const createdAt = new Date(post.createdAt).toLocaleDateString();
+    const updatedAt = new Date(post.updatedAt).toLocaleDateString();
+
     useEffect(() => {
         (async () => {
             try {
@@ -38,6 +41,12 @@ const PostDisplay = ({ post }: { post: PostType }) => {
     return (
         <StyledPostDisplay>
             <StyledH2>{post.title}</StyledH2>
+            <StyledP>
+                <em>
+                    Written by <strong>{post.author.username}</strong> on{' '}
+                    {createdAt}{createdAt !== updatedAt && `, last updated ${updatedAt}`}
+                </em>
+            </StyledP>
             <hr />
             <StyledPostContent
                 dangerouslySetInnerHTML={{ __html: post.content }}
@@ -60,6 +69,10 @@ const StyledH2 = styled.h2`
     text-align: center;
 `;
 const StyledH3 = styled.h3`
+    text-align: center;
+`;
+
+const StyledP = styled.p`
     text-align: center;
 `;
 
