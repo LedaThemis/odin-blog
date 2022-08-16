@@ -1,6 +1,9 @@
 import { CommentType } from '@ledathemis/odin-blog-library/typings';
+import { useState } from 'react';
 import { BsFillTrashFill, BsPencilFill } from 'react-icons/bs';
 import styled from 'styled-components';
+
+import CommentEdit from './CommentEdit';
 
 const CommentDisplay = ({
     comment,
@@ -11,30 +14,59 @@ const CommentDisplay = ({
 }) => {
     const createdAt = new Date(comment.createdAt).toLocaleDateString();
     const updatedAt = new Date(comment.createdAt).toLocaleDateString();
-
     const currentUserId = localStorage.getItem('userId');
-    return (
-        <StyledComment>
-            {currentUserId === comment.author._id.toString() && (
-                <StyledActionButtons>
-                    <StyledPostEditButton />
-                    <StyledPostDeleteButton
-                        onClick={() => handleCommentDelete(comment)}
-                    />
-                </StyledActionButtons>
-            )}
-            <StyledHeader>
-                <strong>{comment.author.username}</strong>
-                <span>{createdAt}</span>
-                {createdAt !== updatedAt && (
-                    <span>
-                        <em>Last Updated {updatedAt}</em>
-                    </span>
+
+    const [currentComment, setCurrentComment] = useState<CommentType>(comment);
+    const [editing, setEditing] = useState<boolean>(false);
+
+    const handleCommentEdit = () => {
+        setEditing(true);
+    };
+
+    const handleCancelEditing = () => {
+        setEditing(false);
+    };
+
+    const handleSuccessEdit = (updatedComment: CommentType) => {
+        setEditing(false);
+        setCurrentComment(updatedComment);
+    };
+
+    const isCommentAuthor = (userId: string) =>
+        userId === currentComment.author._id.toString();
+
+    if (editing) {
+        return (
+            <CommentEdit
+                comment={currentComment}
+                handleCancelEditing={handleCancelEditing}
+                handleSuccessEdit={handleSuccessEdit}
+            />
+        );
+    } else {
+        return (
+            <StyledComment>
+                {currentUserId && isCommentAuthor(currentUserId) && (
+                    <StyledActionButtons>
+                        <StyledPostEditButton onClick={handleCommentEdit} />
+                        <StyledPostDeleteButton
+                            onClick={() => handleCommentDelete(currentComment)}
+                        />
+                    </StyledActionButtons>
                 )}
-            </StyledHeader>
-            <StyledContent>{comment.content}</StyledContent>
-        </StyledComment>
-    );
+                <StyledHeader>
+                    <strong>{currentComment.author.username}</strong>
+                    <span>{createdAt}</span>
+                    {createdAt !== updatedAt && (
+                        <span>
+                            <em>Last Updated {updatedAt}</em>
+                        </span>
+                    )}
+                </StyledHeader>
+                <StyledContent>{currentComment.content}</StyledContent>
+            </StyledComment>
+        );
+    }
 };
 
 const StyledComment = styled.div`
