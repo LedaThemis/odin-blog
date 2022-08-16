@@ -44,7 +44,8 @@ const PostDisplay = ({ post }: { post: PostType }) => {
             <StyledP>
                 <em>
                     Written by <strong>{post.author.username}</strong> on{' '}
-                    {createdAt}{createdAt !== updatedAt && `, last updated ${updatedAt}`}
+                    {createdAt}
+                    {createdAt !== updatedAt && `, last updated ${updatedAt}`}
                 </em>
             </StyledP>
             <hr />
