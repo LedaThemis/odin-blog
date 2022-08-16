@@ -12,7 +12,7 @@ const PreviewPost = ({ post }: IPreviewPost) => {
     return (
         <StyledPost>
             <StyledH3>
-                <StyledLink to={`posts/${post._id}`}>{post.title}</StyledLink>
+                <StyledBlogTitleLink to={`posts/${post._id}`}>{post.title}</StyledBlogTitleLink>
             </StyledH3>
             <StyledP>Author: {post.author.username}</StyledP>
             <StyledP>
@@ -24,6 +24,11 @@ const PreviewPost = ({ post }: IPreviewPost) => {
         </StyledPost>
     );
 };
+
+const StyledBlogTitleLink = styled(StyledLink)`
+    text-decoration: underline;
+    color: #0000EE;
+`;
 
 const StyledPost = styled.div`
     display: flex;
