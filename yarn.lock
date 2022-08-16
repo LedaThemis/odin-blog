@@ -1567,10 +1567,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@ledathemis/odin-blog-library@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@ledathemis/odin-blog-library/-/odin-blog-library-0.0.6.tgz#a76a46b7b503fa2931988021f7d52c2a9b95fc96"
-  integrity sha512-x6Cl21PIvV6pmkoUa51bkYrunp0cX5+HCaYs2jgZpUU1/0//KFRutV7UGo5fDX/PIB/Qfu9o5jyWs7U404HTeA==
+"@ledathemis/odin-blog-library@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@ledathemis/odin-blog-library/-/odin-blog-library-0.0.8.tgz#865e51891a2ff63d5f3631e17ce86aad431db1d3"
+  integrity sha512-ExzrLPoHVjGStaqAuqDF+9+B1MfI6HNxD1mDD5m+8dYkSNOSAqnp+qh42sJ7Dl3xphYImuhIZaEZCZxvehjkRQ==
   dependencies:
     ms "^2.1.3"
 
