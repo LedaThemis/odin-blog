@@ -39,7 +39,7 @@ const PostDisplay = ({ post }: { post: PostType }) => {
         <StyledPostDisplay>
             <StyledH2>{post.title}</StyledH2>
             <hr />
-            <p dangerouslySetInnerHTML={{ __html: post.content }}></p>
+            <StyledPostContent dangerouslySetInnerHTML={{ __html: post.content }}></StyledPostContent>
             <StyledH3>Comments</StyledH3>
             {errors ? (
                 <Errors errors={errors} />
@@ -59,6 +59,10 @@ const StyledH2 = styled.h2`
 `
 const StyledH3 = styled.h3`
     text-align: center;
+`
+
+const StyledPostContent = styled.p`
+    padding: 0 20px;
 `
 
 export default PostDisplay;
