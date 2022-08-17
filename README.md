@@ -10,6 +10,6 @@ Technologies used:
 
 ## Related Repositories
 
-- [CMS](https://github.com/ledaThemis/odin-blog-cms)
-- [API](https://github.com/ledaThemis/odin-blog-api)
-- [API Library](https://github.com/ledaThemis/odin-blog-library)
+-   [CMS](https://github.com/ledaThemis/odin-blog-cms)
+-   [API](https://github.com/ledaThemis/odin-blog-api)
+-   [API Library](https://github.com/ledaThemis/odin-blog-library)
