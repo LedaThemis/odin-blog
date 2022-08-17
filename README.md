@@ -7,3 +7,9 @@ Technologies used:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+## Related Repositories
+
+- [CMS](https://github.com/ledaThemis/odin-blog-cms)
+- [API](https://github.com/ledaThemis/odin-blog-api)
+- [API Library](https://github.com/ledaThemis/odin-blog-library)
